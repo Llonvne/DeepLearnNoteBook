@@ -8,10 +8,14 @@ DeepLearnNote for BiliBili Video URL = https://www.bilibili.com/video/BV1JE411g7
 B站视频原地址 是 https://www.bilibili.com/video/BV1JE411g7XF
 
 ### unfinished 版本
-当一个笔记未完成时，也会上传到unfinished 文件夹
+当一个笔记未完成时，也会上传到unfinished 文件夹.
 
-请注意即便笔记后来完成，unfinished版本也不会被删除！
+请注意即便笔记后来完成，unfinished版本也不会被移除
 
+### unfixed 版本
+当一个笔记已经处于内容完结状态，但是格式等待修复时，将会被放置于unfixed目录
+
+请注意即便笔记后来被完成，unfixed版本也不会被移除
 
 ---
 ## 源代码部分
