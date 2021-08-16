@@ -17,6 +17,9 @@ release版本的笔记将不带有 任何下列叙述的标签 [] ,表示是一�
 ### txt 版本
 为了方便Github追踪变化将增加 txt，同时注意Txt版本会多次更新，更新速度会远快于任何一个现存的版本，注意该版本一般用于Github追踪。
 
+请注意 TXT版本 不区分 release unfixed 或者 unfinished 你看到的txt文件可能是任何版本的笔记
+且 TXT版本不保证更新至最新版本
+
 ### unfinished 版本
 当一个笔记未完成时，也会上传到unfinished 文件夹.
 
