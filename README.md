@@ -15,6 +15,8 @@ B站视频原地址 是 https://www.bilibili.com/video/BV1JE411g7XF
 ### unfixed 版本
 当一个笔记已经处于内容完结状态，但是格式等待修复时，将会被放置于unfixed目录
 
+请注意unfixed版本只有bear版本，也就是说不会有官方的Unfixed的PDF版本 （虽然你们也可以打开bear自己转换，但是毕竟是unfixed，PDF不具有编辑性质）
+
 请注意即便笔记后来被完成，unfixed版本也不会被移除
 
 ---
