@@ -1,4 +1,4 @@
-# 这是一个个人深度学习的笔记和部分个人源代码的仓库
+# DeepLearnNoteBook 深度学习个人笔记和个人实验代码
 ---
 ## 笔记部分
 ### DeepLearnNoteBook
