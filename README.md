@@ -7,6 +7,11 @@ DeepLearnNote for BiliBili Video URL = https://www.bilibili.com/video/BV1JE411g7
 ### 深度学习笔记原视频地址
 B站视频原地址 是 https://www.bilibili.com/video/BV1JE411g7XF
 
+### unfinished 版本
+当一个笔记未完成时，也会上传到unfinished 文件夹
+
+请注意即便笔记后来完成，unfinished版本也不会被删除！
+
 
 ---
 ## 源代码部分
