@@ -1,0 +1,111 @@
+# P1 机器学习
+#deepLearn
+---
+
+# 机器学习就是让机器自动寻找函数
+
+## exp:
+语音识别
+输入一段语音    ====>    输出一段文字
+
+语音辨识
+输入一张图片    ====>    输出一个物品
+…
+
+
+## Q:你想要找什么函数？
+
+### 1.Regression （数字）
+
+让机器预测第二天到 PM 2.5值
+
+Q：找到一个函数 能通过前几天到PM2.5 自动输出明天的PM2.5
+
+### 2.Binary Classification （两个选项） 机器只输出Yes/No 
+
+Q：正面还是负面
+
+### 3.Multi-class classification  （超过两个选项）
+
+定义好N个选项 ， 机器选择一个正确的选项
+
+### 4.Generation 生成 文句 图片 等等。。。
+
+翻译作业 画二次元 。。。
+
+---
+
+# 怎样告诉机器你想要找什么函数
+
+## Supervise Learning （监督学习）
+
+### 如何告诉机器怎么样找呢？
+
+我们需要 Labeled Data （训练资料） 比如 一大堆问题 和 问题理想的问题
+
+### 当机器获得训练集后如何学习？
+
+你需要给定一个函数的 ::Loss:: 来让机器判断这个函数是好还是不好
+
+---
+
+# Reinforcement Learning (强化学习)
+
+## Supervised VS Reinforcement :
+> Supervised:
+> 例子：围棋
+> 你需要给出的训练集为 一个任意的棋局 和 一个理想解
+> 其中存在两个问题 ：任意棋局数量太大不可计算，理想解是否存在
+
+## Reinforcement Learning
+> Reinforcement:
+> 例子：围棋
+> 机器自己跟自己下或者跟别人下
+> 赢了： 成为一个Win训练集
+> 输了：成为一个Lose训练集
+
+---
+
+# 深度学习方式不唯一
+
+## Alpha Go is Supervised + Reinforcement Learning
+
+---
+
+# Unsupervised Learning  (无监督学习)
+常用例子：分类
+
+---
+
+# 机器如何找出你想要的函数
+
+1. 函数寻找范围
+> Network Architecture 定义机器搜寻的范围 有如下两种方式
+> 1. RNN
+> 2. CNN
+
+2. 函数寻找方法
+> Gradient Descent
+> 前面会自己写寻找方法
+> 后面会使用 Deep Learning Framework （使用现成的算法） 来完成作业
+> 还会有 Pytorch	 学习
+
+3. 前沿方向：
+> Explainable AI    (可解释的人工智能：给出判断理由)
+> Adversarial Attack （对抗性攻击）：人类怀着恶意攻击AI系统，会发生什么。
+> Network Compression （网络压缩） ： 把机器学习的网络缩小 让他放到手机上等等
+> Anomaly Detection (异常情况检测)  : 检测非法操作
+> Transfer Learning (Domain Adversarial Learning) 转移学习，领域对抗学习
+> Meta Learn = Learn to Learn  让机器自己学习机器学习
+> Life-long Learning 终生学习 Never Ending Learning !
+
+
+
+
+
+
+
+
+
+
+

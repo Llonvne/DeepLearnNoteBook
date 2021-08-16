@@ -1,0 +1,240 @@
+# P2 Regression - Case Study
+#deepLearn #Regression
+
+# Regression(数值预测) 可以做什么
+* 股票预测系统  f(关于这支股票的各种资料) = 明天的股价
+* 自动驾驶汽车 f(汽车周围的环境) = 接下来的驾驶操作
+* 推荐算法 f(你的各种数据) = 你最可能购买的物品
+* 预测宝可梦的CP值（大雾） 
+> CP值 为一只宝可梦的战斗力
+> 就可以决定是否要进化这支宝可梦 （大雾)
+
+## 任务： f(一只宝可梦的信息) = 他进化的CP值
+
+### 分类 ： Regression Problem
+
+### 输入 ： 一只宝可梦所有的信息
+
+### 输出： 这只宝可梦进化后的战斗力
+
+## 步骤列表
+* 找一个model = function set 模型 = 函数集
+* 定一个function set 里面的 function
+* 找一个最好的function
+
+## Step 1: Model
+找一个Model  或者也可以称为 Function set
+
+随便写一个 Model
+
+::注意： a_b 表示 b 是 a的下标::
+
+Y = b + w * x_cp
+> Y : 进化后的CP值
+> b ： 常数项
+> w： 常数项
+> X_cp ： 进化前宝可梦的CP值
+
+其中 w , b 是参数
+（可以为任何数）
+
+这个Model （function set）里面有无穷无尽个函数（因为 w 和 b 可以随便取值）
+
+## 形如 Y = b + w * x 这样的模型（model）叫做线性模型（linear model）
+#linear
+Y = b + ∑ w_i * x_i
+
+x_i : 称为 feature （特征）
+w_i : weight (权重)
+b : bias(偏差)
+
+# Step 2: Goodness of Function 
+## 类型： Supervise Learning Test
+
+::我们用 a^b 表示 b 是 a的 上标::
+
+## Function input : x^1   X^2 …
+（注：用上标来表示一个完整的Component (元件) ）
+## Function output (Value) :  Y^1H     Y^2H …
+（注：在一个完整的Component 后面 跟上一个大写的H表示他是一个输出）
+（注：这不是一个推荐的写法，只不过是因为在markdown方便）
+
+### 注意：在本次试验中，我们都是输入输出值都是单个数值，所以可能不需要上标下标，但是在后面的试验中，这是一个推荐的方法
+
+## Training Data :
+> 10 Pokemons
+> x^1 , y^1H
+> x^2, y^ 2H
+> …
+
+::This is the real data(老师注：这是真实的数据)（大雾）::
+
+## Goodness of Function (定义一个函数的好坏)
+
+### 如何去定义：定一个损失函数(Loss function) 记为 Loss 或者 L （大写）
+
+#### Input : a function (输入是一个函数)
+#### Output: how bad it is （这个函数怎么样）
+
+::L(f) = L(w,b)::
+
+衡量一个函数的好坏 等价于 衡量一组参数的好坏
+
+#### 如何去求这个Loss （常见求法：写均方差，如下图所示）
+
+[image:90C9A209-1267-4D00-B833-0418CAF87350-11231-00000043A7E86C6F/19E473DE-733B-4BD9-B75F-F78E881B9009.png]
+
+
+y^nH : 这是理想值（真正的数值）
+里面的小括号是：这个函数预测出来的值（预测的数值）
+两者求差就是 预测的预测
+最后再把预测误差的求和
+
+# Step 3: Best Function (选出最好的函数)
+## Pick The Best Function ！
+[image:7F930696-20FA-44CB-9DEB-080A99F3F2C5-11231-0000004623612F64/5CC59525-B7DD-43C5-AF35-9BC36058AD86.png]
+### 要找到一个 f 使得 L（f） 最小
+---
+[image:DF5794BC-0DC0-4822-BE19-AA495497728C-11231-000000468069EE02/66A575D9-3F7A-49A5-BDAD-F398640F1D3D.png]
+### 穷举所有的 w 和 b 来找到最小的L(w,b)
+---
+[image:41E115C3-0A14-45A2-8F70-5FFD63732EF9-11231-00000046FD413100/FC08B9E3-CD5E-425C-9ADC-946BCED19BF4.png]
+### 找到所有 w b 带进去 损失函数 看看那个最小
+---
+
+
+# Gradient Descent  梯度下降算法
+#GradientDescent
+#### 该方法不只适用于解这么一个函数,这个函数只要是L损失函数是可以微分的，就可以求。
+
+## 简化题目：
+#### Consider loss function L(w) with one parameter w;
+(只考虑有一个参数的损失函数)
+
+暴力方法： 穷举所有 w 可能的取值，全部带进去看那个最小。
+
+## Gradient Descent 如何解：
+1. (Randomly) Pick an initial value w^0 (随机取起始点 记为 w^0)
+2. compute L 对 w 的微分 也就是 切线斜率 
+
+[image:C17A9304-DECF-413F-8EDF-AD0188CAE613-11231-0000004EF2C1CFD0/47E8366A-3D4F-4968-A4D7-6A76E6F4D88C.png]
+* 如果 微分是负数 也就是 斜率 是负数 也就表明 左边比较高，就应该增加 w 值
+[image:36E932E9-47DE-4997-921D-A3435AE52C1A-11231-0000004FD731884C/7AE7C567-5E93-4AC2-89C1-50AD65ADF70A.png]
+ 
+* 如上图所示应该增加 w 值 使得 L(w)减少
+
+反之 就应该减少 w
+
+3. 那么应该增加多少呢？
+取决于 现在的微分值有多大 微分值大表示陡峭 也表示离极值点远，就应该移动的快，反之就越小
+另外还取决于一个常数项 n （实际上应该是 n 一他） 我们称之为 learning rate (学习率)
+
+* 最后的更新应该为：
+[image:61CC29AB-6EB4-45AC-AA14-A484D0E6999E-11231-00000051935F47A8/5FBE370E-1D9F-43C7-8FDB-D99DADF1E738.png]
+
+
+4. 重复之前的步骤 重新计算 新的点微分值 （也就是执行 步骤 2）
+5. 反复更新后也就会到 一个 Local optimal（局部最优） 的位置 也就是 微分值为 0 处
+
+#### 注意 这个 Local optimal 在 Regression	上不是一个问题！因为他会随机取点！！！
+
+## 如果说有两个参数？
+
+其实是一样的
+
+1. 随机选取两个初始值
+2. 计算w_0,b_0 的偏微分
+3. 更新w_0,b_0参数 获得一组新的参数 w_0,b_1,在回到 2 循环做
+4. 直到达到一个 局部最优解 （微分为 0 ）结束
+
+结果图：
+[image:4A27A818-4BB9-46BE-B35E-4107D2A6F387-11231-00000054E267BAFD/C19345FE-01A8-4DDA-91E2-DC8A8CBCD518.png]
+梯度下降原理示意图：
+[image:33F778E2-04F1-45D1-891D-C26EE6F0456A-11231-00000055BB178B37/8F282078-1FD6-4CE8-A6A7-B8C258C2ACD5.png]
+---
+
+### Gradient Descent 让人担心是否会卡在局部最优解？
+[image:2156D639-1727-4C70-A838-1537BC05A80F-11231-000000568715D927/FF333DE1-6F5C-47A7-9AD1-967069601BA2.png]
+
+### 在linear regerssion 不用过于担心
+
+> Loss function 是 convex （凸函数） 就是说没有 局部最优解的地方！
+> 所以不存在落入局部最优解
+> 所以无论起始点在哪里都会回到同一个值
+
+### 结果：
+[image:959E352E-C4DC-46CA-B48E-9438E811AF69-12646-0000005B064B0854/781B383E-3E7E-4CF6-934C-CD088B02FC0D.png]
+
+是那条红色的线，没有办法完全的正确的所有宝可梦的CP值
+如果想要知道有多不好 
+可以计算一下Error值：每一个红色的点和对应红色的点的距离的和就是Error
+
+这个并不是我们真正关心的，我们关心的是
+
+Generalization 预测值
+
+###  我们真正关心的是预测值 (Testing data)
+
+[image:9FF2F7D8-166E-4F21-B97B-465B31FE0245-12646-0000005C02C2F2D8/DAE573CE-CF31-4CF5-AE44-069464BA7DA6.png]
+
+其实也可以大致预测进化后的CP值
+
+## How can we do better
+### 重新设计我们的model
+需要一个更加复杂的model
+
+### 需要引入二次式子
+
+新 model：
+Y = b + w_1 * x_cp + w_2 * (x^2)_cp
+
+[image:6479EE08-6683-4677-BA1B-8EA05E69258D-12646-0000005DCAC8C853/3B1F2470-E444-459D-9933-84AE58A6AA9C.png]
+
+Error值降低了很多
+
+## More Better ？
+引入三次式子？
+
+4，5，6  …?
+
+## Not Better  (过拟合)
+在 train 上获得一个更好的结果
+但是在 test 上却变差了
+
+[image:977100CF-A422-46F9-AE10-402429B7C67C-12646-0000005F7940CDE2/10AAFE8A-C653-4C68-B1BB-DEE2F37F760C.png]
+
+Model 变烂了 原来 500 应该是 正的，现在竟然是 负的！
+但是在 training data 效果非常好
+但是在 test data 结果会非常不准（烂）
+
+[image:49DBCD53-139D-487D-A23B-4D5014B00713-12646-000000609B5683EA/BB7A2D34-1B99-452C-B452-91399E6E4002.png]
+在理论上 式子越复杂，就能使得 error rate降低
+
+[image:CAF335BA-3EEA-4523-A2C1-8F3DBC7B9A0A-12646-00000060EFC82908/EEAC76C7-481C-4F14-80F2-E3CBCE90763F.png]
+但是在test data上 第四个第五个error就会暴增。
+
+## 结论：越复杂的模型往往能在training data获得优秀的结果，但是不一定能在test data 获得优秀的结果，这个就叫Overfiting  （过度拟合）
+
+## Let’s collect more data
+[image:74825F2D-6D20-4681-9A5C-FF2955591D63-13222-0000006452F6725B/DE3DE6D5-5B13-4EAE-85ED-E0DA060A7CEB.png]
+我们会发现他不是一个简单的线性关系
+
+有一些隐藏的因素影藏在里面
+增加了 unfixed 版本描述
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
